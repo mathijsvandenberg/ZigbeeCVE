@@ -35,6 +35,31 @@ You don't want to connect this to your logic analyzer
 ![](img/cve-fan3.jpg)
 But with a ground respected power supply, you are good to go. Note! The AC mains is NOT connected right now, power is injected by the blue and red wire!
 
+## Actual communication with the CVE
+
+On startup, the CVE will check if it can communicate with address 0x54. This fails in my case, so it is likely an official upgrade module for this port. The I2C dictionairy states that this is likely an I2C EEPROM or a PWM controller.
+
+Then after 10ms it will issue communication:
+
+Write to 0x00: 82 C0 00 00 00 BE
+
+![](img/cve-i2c-dump.jpg)
+
+This message is initial. After every 60 seconds, the following message is transmitted over the bus:
+
+Write to 0x00: 82 B1 D9 01 10 86 00 03 20 20 20 20 20 20 20 20 20 20 20 20 00 DA
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
