@@ -33,7 +33,7 @@ I got warned reading Arjens thread about the development and you easily create a
 You don't want to connect this to your logic analyzer
 
 ![](img/cve-fan3.jpg)
-But with a ground respected power supply, you are free to go
+But with a ground respected power supply, you are good to go. Note! The AC mains is NOT connected right now, power is injected by the blue and red wire!
 
 
 
