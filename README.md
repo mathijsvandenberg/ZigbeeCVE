@@ -10,11 +10,11 @@ The remote is working on 868 MHz and is working fine, however my child threw one
 Yes, this would be the most easy and less expensive way, but I had some domotica plans for this fan for automating.
 
 ## Emulate a remote control
-There are a handful projects about emulating a remote control, but this is convenient for me, as I would like to change settings in e.g. my bathroom to go full throttle while showering. I might connect this to Home Assistant with some wrappers and software but...no.
+There are a handful projects about emulating a remote control, but this isn't convenient for me, as I would like to change settings in e.g. my bathroom to go full throttle while showering. I might connect this to Home Assistant with some wrappers and software but...no.
 
 ## Go for Arjen Hiemstra's solution
 
-Arjen actually inspired me for working on this project. He found out that you can control the CVE fan by writing I2C messages on a I2C bus exposed on a pin header inside the CVE fan. He also made a PCB and software that can do all kind of things. I really like his solution, but it will require additional software on HA to make it work in a automated system. You can find his repo at:
+Arjen actually inspired me for working on this project. He found out that you can control the CVE fan by writing I2C messages on a I2C bus exposed on a pin header inside the CVE fan. He also made a PCB and software that can do all kind of things. I really like his solution, but it will require additional software on HA to make it work. You can find his repo at:
 
 https://github.com/arjenhiemstra/ithowifi
 
