@@ -2,7 +2,7 @@
 # ZigbeeCVE
 
 
-This project is about the CVE central ventilation unit by Itho Daalderrop, used widely in the Netherlands. It can be controlled by a mechanical switch and current units can be controlled by a remote control to set the intensity.
+This project is about the CVE central ventilation unit by Itho Daalderop, used widely in the Netherlands. It can be controlled by a mechanical switch and current units can be controlled by a remote control to set the intensity.
 
 The remote is working on 868 MHz and is working fine, however my child threw one in the bathroom sink and the radio chip did not survive. Buying a new remote is rather expensive and that made me search for alternatives.
 
@@ -25,6 +25,42 @@ By using a Nordic NRF52840, capable of running Nordic's Zigbee stack, We can eas
 There is a 8 pin header present on the CVE control unit board, that exposes the required lines.
 
 ![](img/cve-fan1.png)
+
+### Warning: The low level part of the PCB is actually floating about 100V above PE! 
+I got warned reading Arjens thread about the development and you easily create a ground loop that put 100V on 5V capable pins. I solved this by instead of using the powerplug, just injecting 5V on the output of the 75M05 LDO, with a PSU that has respect to my PC's USB ground. The system will draw about 40mA without the fan connected.
+
+![](img/cve-fan2.jpg)
+You don't want to connect this to your logic analyzer
+
+![](img/cve-fan3.jpg)
+But with a ground respected power supply, you are good to go. Note! The AC mains is NOT connected right now, power is injected by the blue and red wire!
+
+## Actual communication with the CVE
+
+On startup, the CVE will check if it can communicate with address 0x54. This fails in my case, so it is likely an official upgrade module for this port. The I2C dictionairy states that this is likely an I2C EEPROM or a PWM controller.
+
+Then after 10ms it will issue communication:
+
+Write to 0x00: 82 C0 00 00 00 BE
+
+![](img/cve-i2c-dump.jpg)
+
+This message is initial. After every 60 seconds, the following message is transmitted over the bus:
+
+Write to 0x00: 82 B1 D9 01 10 86 00 03 20 20 20 20 20 20 20 20 20 20 20 20 00 DA
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
