@@ -14,6 +14,25 @@ There are a handful projects about emulating a remote control, but this is conve
 
 ## Go for Arjen Hiemstra's solution
 
-Arjen actually inspired me for working on this project. He found out that you can control the CVE fan by writing I2C messages on a I2C bus exposed on a pin header inside the CVE fan. He also made a PCB and software that can do all kind of things. I really like his solution, but it will require additional software on HA to make it work in a automated system.
+Arjen actually inspired me for working on this project. He found out that you can control the CVE fan by writing I2C messages on a I2C bus exposed on a pin header inside the CVE fan. He also made a PCB and software that can do all kind of things. I really like his solution, but it will require additional software on HA to make it work in a automated system. You can find his repo at:
+
+https://github.com/arjenhiemstra/ithowifi
 
 ## Go the Arjen way, but rather use the standard Zigbee Light Link, used for Hue, TRÅDFRI, and register as dimmable light that actually controls the CVE. Yes!
+
+By using a Nordic NRF52840, capable of running Nordic's Zigbee stack, We can easily enable Zigbee and have the NRF send out I2C messages to the CVE fan.
+
+There is a 8 pin header present on the CVE control unit board, that exposes the required lines.
+
+![](img/cve-fan1.png)
+
+
+
+
+
+
+
+
+
+
+
